@@ -135,6 +135,16 @@ func (circuit *CircuitBreaker) allowSingleTest() bool {
 	return false
 }
 
+// SetOpen wraps `setOpen`
+func (circuit *CircuitBreaker) SetOpen() {
+	circuit.setOpen()
+}
+
+// SetClose wraps `setClose`
+func (circuit *CircuitBreaker) SetClose() {
+	circuit.setClose()
+}
+
 func (circuit *CircuitBreaker) setOpen() {
 	circuit.mutex.Lock()
 	defer circuit.mutex.Unlock()
